@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from mi_proyecto import views
 
 urlpatterns = [
+    path('homepage/',views.homepage, name='homepage'),
     #path funciones listado.
     path('repartidores/', views.listar_repartidores, name='nombre_url_listar_repartidores'),
     path('tiendas/', views.listar_tiendas, name='nombre_url_listar_tiendas'),

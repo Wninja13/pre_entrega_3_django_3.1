@@ -2,6 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from mi_app.models import Repartidor, Tienda, Producto, Pago, Usuario, Cancelacion, Orden
 from mi_app.forms import RepartidorForm, TiendaForm, ProductoForm, PagoForm, UsuarioForm, CancelacionForm, OrdenForm
 
+#homepage
+def homepage(request): 
+    return render(request, 'homepage.html')
+
 #Funciones de listado de los modelos. 
 def listar_repartidores(request):
     repartidores = Repartidor.objects.all()
