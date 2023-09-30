@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from mi_proyecto.mi_app.models import Repartidor, Tienda, Producto, Pago, Usuario, Cancelacion, Orden
-from mi_proyecto.mi_app.forms import RepartidorForm, TiendaForm, ProductoForm, PagoForm, UsuarioForm, CancelacionForm, OrdenForm
+from mi_app.models import Repartidor, Tienda, Producto, Pago, Usuario, Cancelacion, Orden
+from mi_app.forms import RepartidorForm, TiendaForm, ProductoForm, PagoForm, UsuarioForm, CancelacionForm, OrdenForm
 
 #Funciones de listado de los modelos. 
 def listar_repartidores(request):
