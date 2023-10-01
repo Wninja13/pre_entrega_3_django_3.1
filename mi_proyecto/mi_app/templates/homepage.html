@@ -1,9 +1,176 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Mi Proyecto Django</title>
+    <style>
+        /* Estilos básicos para el navbar */
+    body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, div, a, nav {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-family: 'Roboto', sans-serif;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    li::marker {
+        content: "";
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    .navbar a, .navbar div {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        float: left;
+        cursor: pointer;
+        list-style:none;
+        border-radius: 5px; 
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        transition: 0.3s; 
+    }
+
+    .navbar a:hover, .navbar div:hover {
+        background-color: #ddd;
+        color: black;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+    }
+
+    .navbar a:active, .navbar div:active {
+        box-shadow: none;  
+        transform: translateY(1px);
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    .navbar li {
+        float: left;
+        position: relative;
+        margin-right: 10px;
+    }
+
+    .navbar li:last-child {
+        margin-right: 0;
+    }
+
+    .navbar li:hover > ul {
+    display: block;
+    }
+
+    .navbar li ul {
+        list-style-type: none;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        border: 1px solid #000;
+        width: 200px;
+    }
+
+    .navbar li ul li {
+        float: none;
+    }
+
+    .navbar li ul li a {
+        padding: 10px 15px;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .navbar li ul li a:hover {
+        background-color: #111;
+    }
+
+    </style>
 </head>
+
 <body>
+    <nav class="navbar">
+        <a href="{% url 'homepage' %}">Home</a>
+        <li>
+            <a href="#">Repartidores</a>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_repartidores' %}">Listar</a></li>
+                <li><a href="{% url 'crear_repartidor' %}">Crear</a></li>
+                <li><a href="#">Visualizar</a></li> <!-- Para la visualización, generalmente necesitas seleccionar un repartidor específico,así que puedes no tener un enlace directo aquí, o puedes dirigir a una página que liste todos los repartidores y permita seleccionar uno para visualizarlo -->
+                <li><a href="#">Editar</a></li>
+                <!-- Similar a visualizar, editar un repartidor necesita saber qué repartidor editar, así que podrías llevar al usuario a una página de lista donde puede seleccionar cuál repartidor desea editar -->
+                <li><a href="#">Eliminar</a></li>
+                <!-- Similar a visualizar y editar, eliminar requiere seleccionar un repartidor específico, así que podrías llevar al usuario a una página de lista donde puede seleccionar cuál 
+repartidor desea eliminar -->           
+            </ul>
+        </li>
+        <li>
+            <div>Tiendas</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_tiendas' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a tiendas -->
+            </ul>
+        </li>
+        <li>
+            <div>Productos</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_productos' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a productos -->
+            </ul>
+        </li>
+        <li>
+            <div>Pagos</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_pagos' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a pagos -->
+            </ul>
+        </li>
+        <li>
+            <div>Usuarios</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_usuarios' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a usuarios -->
+            </ul>
+        </li>
+        <li>
+            <div>Cancelaciones</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_cancelaciones' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a cancelaciones -->
+            </ul>
+        </li>
+        <li>
+            <div>Ordenes</div>
+            <ul>
+                <li><a href="{% url 'nombre_url_listar_ordenes' %}">Listar</a></li>
+                <!-- Agrega aquí los otros links relacionados a ordenes -->
+            </ul>
+        </li>
+        <!-- ... otros links ... -->
+    </nav>
+
     {% block content %}{% endblock %}
 </body>
+
 </html>
+
